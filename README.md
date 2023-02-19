@@ -27,8 +27,7 @@ buy now 버튼을 누르면 그 다음 buy now 팝업이 뜹니다
 다중 선택: Macro, Python
 
 # HTML에서 바로 xpath 뽑을걸… able하니까 클릭가능하게 바뀌네…
-
-![Untitled](%E1%84%86%E1%85%B5%E1%86%AB%E1%84%90%E1%85%B5%E1%86%BC%20%E1%84%86%E1%85%A2%E1%84%8F%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%2002%20c2294260e7cb45d5bdde56cb7f503298/Untitled.png)
+<img width="80%" src="https://user-images.githubusercontent.com/42949995/219965106-b8da6208-7623-4562-8e28-ff5fe80b50a7.png"/> 
 
 //*[@id="headlessui-tabs-panel-:r1a:"]/div/div[1]/ul/li/div[2]/div/button
 
