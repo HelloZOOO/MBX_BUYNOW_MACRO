@@ -2,6 +2,7 @@ from PIL import ImageGrab
 import keyboard
 import pyautogui
 import time
+import datetime
 
 MAIN_RGB = (91, 87, 242) #보라색
 COFIRM_RGB = (53, 50, 168) #팝업 보라색
@@ -58,4 +59,20 @@ def main():
             break
 
 if __name__ == '__main__':
-    main()
+    while True:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        if current_time == "21:00:00":
+            RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 50 / 100), MAIN_RGB, 50, 1)
+            main()
+            break
+
+        endhope=False
+        while not endhope:
+            tim=datetime.datetime.now()
+            if tim.second>=59 and tim.microsecond>600000:
+                RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 50 / 100), MAIN_RGB, 50, 1)
+                endhope=True
+                print(tim)
+            else:
+                time.sleep(0.1)
+                print(tim)
