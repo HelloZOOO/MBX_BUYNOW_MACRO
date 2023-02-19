@@ -31,6 +31,8 @@ def RGB_CLICK(x1, y1, x2, y2, INPUT_RGB, RANGE, N): #RGB인식 영역 / RGB색 /
                 if abs(RGB[0]-c_xbox[0]) + abs(RGB[1]-c_xbox[1]) + abs(RGB[2]-c_xbox[2]) < RANGE:
                     print(abs(RGB[0]),abs(c_xbox[0]),abs(RGB[0]-c_xbox[0]),abs(RGB[1]),abs(c_xbox[1]),abs(RGB[1]-c_xbox[1]),abs(RGB[2]),abs(c_xbox[2]),abs(RGB[2]-c_xbox[2]))
                     pyautogui.click((i - 5,j - 5))
+                    x = i
+                    y = j
                     shot = 1
                     break
                 elif shot == 1:
@@ -38,6 +40,13 @@ def RGB_CLICK(x1, y1, x2, y2, INPUT_RGB, RANGE, N): #RGB인식 영역 / RGB색 /
             if shot == 1:
                 break
         break
+    return print(i,j)
+
+def WHILE_CLICK(x,y,N):
+    start_time = time.time()
+    end_time = start_time + N
+    while start_time < end_time:
+        pyautogui.click(x,y)
 
 def main():
     while True:
@@ -59,20 +68,21 @@ def main():
             break
 
 if __name__ == '__main__':
+    main()
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        if current_time == "21:00:00":
-            RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 50 / 100), MAIN_RGB, 50, 1)
-            main()
-            break
+        if current_time == "20:59:00":
+            endhope=False
+            while not endhope:
+                tim=datetime.datetime.now()
+                if tim.second>=59 and tim.microsecond>600000:
+                    RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 50 / 100), MAIN_RGB, 50, 1)
+                    
+                    endhope=True
+                    print(tim)
+                    break
+                else:
+                    time.sleep(0.1)
+                    print(tim)
 
-        endhope=False
-        while not endhope:
-            tim=datetime.datetime.now()
-            if tim.second>=59 and tim.microsecond>600000:
-                RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 50 / 100), MAIN_RGB, 50, 1)
-                endhope=True
-                print(tim)
-            else:
-                time.sleep(0.1)
-                print(tim)
+print("프로그램 종료")
