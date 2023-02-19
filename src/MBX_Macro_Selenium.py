@@ -97,7 +97,7 @@ def RGB_CLICK(x1, y1, x2, y2, INPUT_RGB, RANGE, N): #RGB인식 영역 / RGB색 /
 if __name__ == '__main__':
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        if current_time == "20:59:00":
+        if current_time == "02:42:50":
             endhope=False
             while not endhope:
                 tim=datetime.datetime.now()

@@ -49,7 +49,7 @@ buy now 버튼을 누르면 그 다음 buy now 팝업이 뜹니다
     if __name__ == '__main__':
         while True:
             current_time = datetime.datetime.now().strftime("%H:%M:%S")
-            if current_time == "00:44:50":
+            if current_time == "00:41:50":
                 endhope=False
                 while not endhope:
                     tim=datetime.datetime.now()
