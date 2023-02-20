@@ -20,8 +20,8 @@ import datetime
 import os
 
 URL = "https://playone.marblex.io/ino/63dca20a2e19433d0e44ec1f/63edd3feb7b1b61da2d26360"
-waitTime = "14:39:50"
-directory_chrome = r"C:\Users\c\AppData\Local\Google\Chrome\User Data" # 크롬 계정데이터 모여있는 폴더 chrome://version
+waitTime = "20:59:30"
+directory_chrome = r"C:\Users\thqud\AppData\Local\Google\Chrome\User Data" # 크롬 계정데이터 모여있는 폴더 chrome://version
 
 USING_CHROME_PROFILE = False
 NUM_CHROME_PROFILE = 0
@@ -138,7 +138,7 @@ if __name__ == '__main__':
             endhope=False
             while not endhope:
                 tim=datetime.datetime.now()
-                if tim.second>=59 and tim.microsecond>600000:
+                if tim.second>=55 and tim.microsecond>600000:
                     #미리 로그인해두고 buy now 가 중반쯤에 오도록 스크롤을 내려두도록 합시다
                     pyautogui.click(int(width * 90 / 100), int(height * 90 / 100))
                     #윈도우 팝업이 뜰때까지 계속 클릭합니다
