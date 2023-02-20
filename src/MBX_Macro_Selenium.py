@@ -20,7 +20,8 @@ import datetime
 import os
 
 URL = "https://playone.marblex.io/ino/63dca20a2e19433d0e44ec1f/63edd3feb7b1b61da2d26360"
-directory_chrome = r"C:\Users\thqud\AppData\Local\Google\Chrome\User Data" # 크롬 계정데이터 모여있는 폴더 chrome://version
+waitTime = "14:39:50"
+directory_chrome = r"C:\Users\c\AppData\Local\Google\Chrome\User Data" # 크롬 계정데이터 모여있는 폴더 chrome://version
 
 USING_CHROME_PROFILE = False
 NUM_CHROME_PROFILE = 0
@@ -133,7 +134,7 @@ def main():
 if __name__ == '__main__':
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        if current_time == "14:39:50":
+        if current_time == waitTime:
             endhope=False
             while not endhope:
                 tim=datetime.datetime.now()
