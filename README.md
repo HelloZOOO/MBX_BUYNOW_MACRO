@@ -1,32 +1,21 @@
 # MBX_BUYNOW_MACRO
 
 # 민팅 매크로 개발 01
+### 필요 라이브러
 
 ```python
 py -m pip install pyautogui
 
 py -m pip install keyboard
 
-py -m pip install openpyxl
-
 py -m pip install selenium
 
 py -m pip install webdriver_manager
 
-py -m pip install clipboard
-
 py -m pip install pillow
-
-py -m pip install xlrd
-#utf-8 변환
-py -m pip install chardet
-
-py -m pip install pandas
-
-py -m pip install lxml
-
-py -m pip install tk
 ```
+
+#### chrome://version 으로 크롬 path 확인
 
 <aside>
 🔥 MBX 서버위치 확인
