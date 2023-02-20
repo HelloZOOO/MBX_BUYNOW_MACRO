@@ -93,11 +93,47 @@ def RGB_CLICK(x1, y1, x2, y2, INPUT_RGB, RANGE, N): #RGB인식 영역 / RGB색 /
         break
     return print(i,j)
 
+#수동모드 
+def main():
+    print("수동모드 ON")
+    print("에러나면 그냥 F5눌러서 새로고침하시고 BuyNow 버튼부분에서 F2 누르시면 됩니다")
+    while True:
+        if keyboard.is_pressed('F2'):
+            while True:
+                windowTabs = len(driver.window_handles)
+                if windowTabs == 1:
+                    RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 80 / 100), MAIN_RGB, 50, 1)
+                    #print("클릭성공 시간 : ",tim)
+                else :
+                    print("팝업떴다!")
+                    print(len(driver.window_handles))
+                    break
+            
+            """#지워도되는부분테스트용
+            element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="__next"]/div[2]/div/div/div[2]/div[1]/div/div[2]/div/div[2]/div/button[2]')))
+            driver.find_element(By.XPATH, '//*[@id="__next"]/div[2]/div/div/div[2]/div[1]/div/div[2]/div/div[2]/div/button[2]').click()"""
+            
+            ####여기부터 BUY NOW 팝업 클릭 후 넣어주세요####
+            time.sleep(1)
+            driver.switch_to.window(driver.window_handles[-1]) #크롬 팝업창으로 이동
+            element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id=":r1:"]')))
+            id_box = driver.find_element(By.XPATH, '//*[@id=":r1:"]')
+            id_box.send_keys(Keys.ENTER)
+            element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button')))
+            driver.find_element(By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button').click()
+            driver.switch_to.window(driver.window_handles[-1])
+            print("Confirm Done!")
+            break
+        elif keyboard.is_pressed('F10'):
+            break
+
+#//*[@id="root"]/main/section/section/div/div[2]/div/div/button[4] #트위터버튼
+#//*[@id="allow"] #이전계정으로 로그인
 
 if __name__ == '__main__':
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        if current_time == "02:42:50":
+        if current_time == "14:39:50":
             endhope=False
             while not endhope:
                 tim=datetime.datetime.now()
@@ -121,19 +157,25 @@ if __name__ == '__main__':
                     
                     ####여기부터 BUY NOW 팝업 클릭 후 넣어주세요####
                     time.sleep(1)
-                    driver.switch_to.window(driver.window_handles[-1]) #크롬 팝업창으로 이동
-                    element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id=":r1:"]')))
-                    id_box = driver.find_element(By.XPATH, '//*[@id=":r1:"]')
-                    id_box.send_keys(Keys.ENTER)
-                    element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button')))
-                    driver.find_element(By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button').click()
-                    driver.switch_to.window(driver.window_handles[-1])
-                    print("Confirm Done!")
+                    try:
+                        driver.switch_to.window(driver.window_handles[-1]) #크롬 팝업창으로 이동
+                        element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id=":r1:"]')))
+                        id_box = driver.find_element(By.XPATH, '//*[@id=":r1:"]')
+                        id_box.send_keys(Keys.ENTER)
+                        element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button')))
+                        driver.find_element(By.XPATH, '//*[@id="root"]/main/section/div[1]/div/form/button').click()
+                        driver.switch_to.window(driver.window_handles[-1])
+                        print("Confirm Done!")
+                    except:
+                        print("수동모드로 다시!")
+                        pass
                     endhope=True
                     break
                 else:
                     time.sleep(0.1)
                     print(tim)
+            while True:
+                main()
 
 #화면이동을위한 buy버튼 클릭
 #//*[@id="headlessui-tabs-tab-:r0:"] 
