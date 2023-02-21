@@ -103,7 +103,7 @@ def main():
             while True:
                 windowTabs = len(driver.window_handles)
                 if windowTabs == 1:
-                    RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 80 / 100), MAIN_RGB, 50, 1)
+                    RGB_CLICK(int(width * 10 / 100), int(height * 21 / 100), int(width * 90 / 100), int(height * 85 / 100), MAIN_RGB, 50, 1)
                     #print("클릭성공 시간 : ",tim)
                 else :
                     print("팝업떴다!")
